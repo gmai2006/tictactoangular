@@ -1,10 +1,29 @@
-<div className="game">
-    <div className="game-board">
-        <app-board>
-        </app-board>
+<div class="game">
+    <div class="game-board">
+        <div class="board-row">
+            <app-square [id]=1></app-square>
+            <app-square [id]=2></app-square>
+            <app-square [id]=3></app-square>
+        </div>
+        
+        <div class="board-row">
+            <app-square [id]=4></app-square>
+            <app-square [id]=5></app-square>
+            <app-square [id]=6></app-square>
+        </div>
+        
+        <div class="board-row">
+            <app-square [id]=7></app-square>
+            <app-square [id]=8></app-square>
+            <app-square [id]=9></app-square>
+        </div>
     </div>
-    <div className="game-info">
-        <div>Test</div>
-        <ol></ol>
+    <div class="game-info">
+        <div>Status</div>
+        <ol>
+            <li *ngFor="let history of dataService.history; let i=index">
+                <button (click)="goto(i)">Go to move # {{i}}</button>
+            </li>
+        </ol>
     </div>
 </div>
